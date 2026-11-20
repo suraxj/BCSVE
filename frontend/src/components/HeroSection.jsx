@@ -10,7 +10,7 @@ import {
   Star
 } from 'lucide-react';
 
-export default function HeroSection({ onOpenApply, onOpenVerify }) {
+export default function HeroSection({ _onOpenApply, onOpenVerify }) {
   const { hero } = siteData;
   const heroRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -55,21 +55,22 @@ export default function HeroSection({ onOpenApply, onOpenVerify }) {
       {/* Background Layer with Mouse Parallax */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-center sm:bg-center lg:bg-[position:right_center] transition-transform duration-500 ease-out"
+          className="absolute inset-0 bg-cover bg-no-repeat bg-center sm:bg-center lg:bg-[position:right_center] transition-transform duration-500 ease-out will-change-transform"
           style={{
             backgroundImage: `url(${siteImages.heroBackground})`,
+            imageRendering: '-webkit-optimize-contrast',
+            backfaceVisibility: 'hidden',
             transform: canHover
               ? `translate3d(${mousePos.x * -5}px, ${mousePos.y * -3}px, 0)`
               : 'none',
           }}
         />
 
-        {/* Responsive Readability Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream-50/90 via-cream-50/60 to-cream-50/15 lg:from-cream-50/30 lg:via-cream-50/5 lg:to-transparent pointer-events-none" />
+        {/* Crisp Readability Gradient: Only protects text on the left, keeping students & right graphics 100% clear */}
+        <div className="absolute inset-y-0 left-0 w-full sm:w-2/3 lg:w-1/2 bg-gradient-to-r from-cream-50/80 via-cream-50/40 to-transparent pointer-events-none" />
 
-        {/* Soft Floating Decorative Orbs */}
-        <div className="absolute top-2 left-1/4 w-52 h-52 rounded-full bg-gold-200/20 blur-3xl animate-float-orb-1" />
-        <div className="absolute bottom-1 right-1/3 w-56 h-56 rounded-full bg-bcsve-200/15 blur-3xl animate-float-orb-2" />
+        {/* Soft Ambient Light strictly on the far top-left behind badges, away from the students */}
+        <div className="absolute -top-10 -left-10 w-64 h-64 rounded-full bg-gold-200/15 blur-2xl pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -126,10 +127,10 @@ export default function HeroSection({ onOpenApply, onOpenVerify }) {
             >
               <a
                 href="#programs"
-                className="shimmer-sweep group inline-flex items-center gap-2 px-4.5 py-2 min-h-[38px] rounded-full bg-bcsve-800 hover:bg-bcsve-900 text-white font-semibold text-xs sm:text-sm shadow-sm hover:shadow-[0_8px_20px_-4px_rgba(130,23,51,0.45)] transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-sans"
+                className="shimmer-sweep group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 min-h-[40px] rounded-full bg-bcsve-800 hover:bg-bcsve-900 text-white font-semibold text-xs sm:text-sm shadow-sm hover:shadow-[0_8px_20px_-4px_rgba(130,23,51,0.45)] transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-sans whitespace-nowrap"
               >
                 <span>{hero.primaryCta}</span>
-                <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
+                <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1 shrink-0" />
               </a>
 
               <a
@@ -140,9 +141,9 @@ export default function HeroSection({ onOpenApply, onOpenVerify }) {
                     onOpenVerify();
                   }
                 }}
-                className="inline-flex items-center gap-2 px-4 py-2 min-h-[38px] rounded-full bg-white/95 hover:bg-cream-100 text-bcsve-900 font-semibold text-xs sm:text-sm border border-bcsve-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-sans hover:shadow-card"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 min-h-[40px] rounded-full bg-white/95 hover:bg-cream-100 text-bcsve-900 font-semibold text-xs sm:text-sm border border-bcsve-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-sans hover:shadow-card whitespace-nowrap"
               >
-                <ShieldCheck size={14} className="text-bcsve-800 transition-transform duration-200 group-hover:scale-110" />
+                <ShieldCheck size={14} className="text-bcsve-800 transition-transform duration-200 group-hover:scale-110 shrink-0" />
                 <span>{hero.secondaryCta}</span>
               </a>
             </div>

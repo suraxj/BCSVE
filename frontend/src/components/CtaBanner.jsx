@@ -15,7 +15,7 @@ export default function CtaBanner({ onOpenApply }) {
         
         <Reveal direction="up" duration={650}>
           {/* Compact Maroon Animated Gradient Banner */}
-          <div className="relative rounded-xl bg-gradient-to-r from-bcsve-950 via-bcsve-900 to-bcsve-850 bg-[length:200%_200%] animate-gradientShift border border-bcsve-700/60 p-3.5 sm:p-4.5 shadow-soft hover:shadow-elevated transition-shadow duration-300 overflow-hidden text-white font-sans">
+          <div className="relative rounded-xl bg-gradient-to-r from-bcsve-950 via-bcsve-900 to-bcsve-850 bg-[length:200%_200%] animate-gradientShift border border-bcsve-700/60 p-3.5 sm:p-5 shadow-soft hover:shadow-elevated transition-shadow duration-300 overflow-hidden text-white font-sans">
             
             {/* Subtle gold decorative background highlights */}
             <div className="absolute inset-0 bg-[radial-gradient(#DBBA6F_1.5px,transparent_1.5px)] [background-size:16px_16px] opacity-15 pointer-events-none" />
