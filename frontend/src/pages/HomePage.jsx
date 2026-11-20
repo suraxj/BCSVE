@@ -1,23 +1,14 @@
 import React, { useEffect } from 'react';
 import HeroSection from '../components/HeroSection';
 import StatsBar from '../components/StatsBar';
-import NoticeBoard from '../components/NoticeBoard';
 import AboutSection from '../components/AboutSection';
 import ProgramsSection from '../components/ProgramsSection';
 import FeeStructureSection from '../components/FeeStructureSection';
 import AdmissionProcess from '../components/AdmissionProcess';
-import PartnerRibbon from '../components/PartnerRibbon';
-import WhyChooseUs from '../components/WhyChooseUs';
 import AffiliationCta from '../components/AffiliationCta';
-import Accreditations from '../components/Accreditations';
-import FacultySection from '../components/FacultySection';
 import VerificationSection from '../components/VerificationSection';
-import TestimonialsSection from '../components/TestimonialsSection';
-import PlacementPartners from '../components/PlacementPartners';
-import GalleryEvents from '../components/GalleryEvents';
 import DownloadsSection from '../components/DownloadsSection';
 import FAQSection from '../components/FAQSection';
-import FinalCtaBanner from '../components/FinalCtaBanner';
 import ContactMap from '../components/ContactMap';
 import { useModal } from '../context/ModalContext';
 
@@ -46,58 +37,31 @@ export default function HomePage() {
       {/* 2. Floating Metrics Stats Bar */}
       <StatsBar />
 
-      {/* 3. About BCSVE Section */}
+      {/* 3. About BCSVE (Govt Approval, Mission, Vision & Core Values) */}
       <AboutSection />
 
-      {/* 4. Programs Section with Details buttons */}
+      {/* 4. Programs Section with direct links to custom detail pages */}
       <ProgramsSection onOpenEnquiry={openEnquiry} />
 
-      {/* 4b. Official Transparent Fee Structure */}
+      {/* 5. Official Regulated Fee Structure (3M: ₹800, 6M: ₹1000, 1Y: ₹1500) */}
       <FeeStructureSection onOpenApply={openApply} onOpenEnquiry={openEnquiry} />
 
-      {/* 5. Admission Process (5-Step Timeline) */}
+      {/* 6. Admission Process (5-Step Pathway & Form Download) */}
       <AdmissionProcess onOpenApply={openApply} />
 
-      {/* 6. Why BCSVE Section */}
-      <WhyChooseUs />
-
-      {/* 7. Partner Institutes Ribbon */}
-      <PartnerRibbon />
-
-      {/* 8. Affiliation CTA / Become a Partner */}
+      {/* 7. Centre Affiliation (Become an Authorised Training Partner) */}
       <AffiliationCta onOpenAffiliation={openAffiliation} />
 
-      {/* 9. Accreditations & Quality Framework */}
-      <Accreditations />
-
-      {/* 10. Faculty & Master Trainers */}
-      <FacultySection />
-
-      {/* 11. Certificate Verification System */}
+      {/* 8. Certificate & Marksheet Verification Portal */}
       <VerificationSection />
 
-      {/* 12. Testimonials */}
-      <TestimonialsSection />
-
-      {/* 13. Career Outcomes: Placement & Hiring Partners */}
-      <PlacementPartners />
-
-      {/* 14. Latest Updates: Notice Board & Quick Desk */}
-      <NoticeBoard />
-
-      {/* 15. Campus & Workshops Gallery with Lightbox */}
-      <GalleryEvents />
-
-      {/* 16. Official Downloads & Documents */}
+      {/* 9. Official Council Downloads & Documents */}
       <DownloadsSection />
 
-      {/* 17. Frequently Asked Questions (Accordion) */}
+      {/* 10. Frequently Asked Questions */}
       <FAQSection />
 
-      {/* 18. Final Call to Action Banner */}
-      <FinalCtaBanner onOpenApply={openApply} />
-
-      {/* 19. Contact & Support Map Section */}
+      {/* 11. Central Secretariat Contact & Support Map */}
       <ContactMap />
     </div>
   );

@@ -844,8 +844,7 @@ export const siteData = {
           { name: "Home", href: "#home" },
           { name: "About Us", href: "#about" },
           { name: "Our Programs", href: "#programs" },
-          { name: "Official Fee Structure", href: "#fees" },
-          { name: "Notices & Circulars", href: "#notices" },
+          { name: "Fee Structure", href: "#fees" },
           { name: "Admission Pathway", href: "#admission-process" }
         ]
       },
@@ -854,17 +853,16 @@ export const siteData = {
         links: [
           { name: "Certificate Verification", href: "#verification" },
           { name: "Official Downloads", href: "#downloads" },
-          { name: "Photo & Video Gallery", href: "#gallery" },
-          { name: "Frequently Asked Questions", href: "#faqs" }
+          { name: "Frequently Asked Questions", href: "#faqs" },
+          { name: "Verification Portal", href: "https://www.bcsve.skillvoc.in" }
         ]
       },
       {
         title: "Centre Affiliation",
         links: [
           { name: "Apply for Affiliation", href: "#affiliation-cta" },
-          { name: "Quality Framework", href: "#accreditations" },
-          { name: "Placement Network", href: "#placements" },
-          { name: "Central Council Office", href: "#contact" }
+          { name: "Service Partner Form (PDF)", href: "/docs/bcsve-partner-affiliation-form.pdf" },
+          { name: "Central Secretariat", href: "#contact" }
         ]
       }
     ]
