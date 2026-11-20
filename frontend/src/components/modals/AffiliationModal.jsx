@@ -55,6 +55,15 @@ export default function AffiliationModal({ isOpen, onClose }) {
               <p className="text-[11px] sm:text-xs text-gray-500 font-sans">
                 Apply to become an authorized BCSVE Skill & Vocational Training Centre.
               </p>
+              <div className="pt-1">
+                <a
+                  href="/docs/bcsve-partner-affiliation-form.pdf"
+                  download
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-bcsve-800 hover:text-bcsve-950 underline"
+                >
+                  <span>Download Printable Service Partner Form (PDF)</span>
+                </a>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-2.5 text-xs font-sans">

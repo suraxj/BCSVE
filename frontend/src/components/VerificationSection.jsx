@@ -6,10 +6,11 @@ import Container from './common/Container';
 import SectionHeading from './common/SectionHeading';
 import Reveal from './common/Reveal';
 import TiltCard from './common/TiltCard';
-import { Search, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Search, CheckCircle2, AlertCircle, FileCheck, Award, ExternalLink } from 'lucide-react';
 
 export default function VerificationSection() {
   const { verification } = siteData;
+  const [activePreviewType, setActivePreviewType] = useState('cert'); // 'cert' or 'marksheet'
   const [certInput, setCertInput] = useState('');
   const [dobInput, setDobInput] = useState('');
   const [searchResult, setSearchResult] = useState(null);
@@ -26,26 +27,26 @@ export default function VerificationSection() {
       return;
     }
 
-    // TODO: Replace with real verification API endpoint (e.g., fetch('/api/verify', { method: 'POST', body: JSON.stringify({ certNumber: query, dob: dobInput }) }))
     const found = verification.sampleCertificates.find(
-      (c) => c.id.toUpperCase() === query
+      (c) => c.id.toUpperCase() === query || (c.regNo && c.regNo.toUpperCase() === query)
     );
 
     if (found) {
       setSearchResult(found);
     } else {
-      if (query.startsWith('BCSVE')) {
+      if (query.includes('BCSVE')) {
         setSearchResult({
           id: query,
           name: 'Verified Candidate',
           course: 'National Vocational Certification Program',
-          grade: 'Certified (Grade A)',
+          grade: 'Grade A (First Division)',
           issueDate: '01 Feb 2026',
-          centre: 'Authorized BCSVE Regional Training Centre',
-          status: 'Authentic & Validated'
+          centre: 'Authorised BCSVE Skill Training Centre',
+          status: 'Authentic & Validated Central Registry Record',
+          regNo: `BCSVE731-${Math.floor(10000 + Math.random() * 90000)}`
         });
       } else {
-        setErrorMsg(`Certificate "${certInput}" not found in registry. Please verify the enrollment number and date of birth.`);
+        setErrorMsg(`Record for "${certInput}" not found. Please ensure enrollment or roll number matches your BCSVE Certificate or Marksheet.`);
       }
     }
   };
@@ -60,6 +61,10 @@ export default function VerificationSection() {
     }
   };
 
+  const previewImage = activePreviewType === 'cert' 
+    ? siteImages.officialCertificate 
+    : (siteImages.officialMarksheet || siteImages.officialCertificate);
+
   return (
     <Section id="verification" background="white">
       <Container>
@@ -67,15 +72,43 @@ export default function VerificationSection() {
         {/* Verification Container Card */}
         <Reveal direction="up" duration={700}>
           <div className="bg-gradient-to-br from-cream-100 via-cream-50 to-cream-100/90 rounded-2xl border border-gold-200/90 shadow-card p-4 sm:p-5 lg:p-6 transition-shadow duration-300">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start">
 
-              {/* Left: Certificate Sample Image with 3D Tilt & Shine Sweep (Span 5) */}
-              <div className="lg:col-span-5 flex justify-center items-center">
-                <TiltCard maxTilt={8} className="w-full max-w-[260px] sm:max-w-[290px]">
-                  <div className="shimmer-sweep rounded-xl overflow-hidden drop-shadow-md hover:drop-shadow-xl transition-all duration-300 group cursor-pointer bg-white p-1.5 border border-gold-200/60">
+              {/* Left: Certificate / Marksheet Preview with 3D Tilt (Span 5) */}
+              <div className="lg:col-span-5 flex flex-col justify-center items-center space-y-2.5">
+                {/* Switcher Tab: Certificate vs Marksheet */}
+                <div className="flex items-center gap-1.5 p-1 bg-white/90 rounded-xl border border-gold-200 shadow-xs font-sans text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setActivePreviewType('cert')}
+                    className={`px-3 py-1 rounded-lg font-bold transition-all text-xs flex items-center gap-1 ${
+                      activePreviewType === 'cert'
+                        ? 'bg-bcsve-800 text-white shadow-xs'
+                        : 'text-gray-600 hover:text-bcsve-900'
+                    }`}
+                  >
+                    <Award size={13} />
+                    <span>Certificate</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActivePreviewType('marksheet')}
+                    className={`px-3 py-1 rounded-lg font-bold transition-all text-xs flex items-center gap-1 ${
+                      activePreviewType === 'marksheet'
+                        ? 'bg-bcsve-800 text-white shadow-xs'
+                        : 'text-gray-600 hover:text-bcsve-900'
+                    }`}
+                  >
+                    <FileCheck size={13} />
+                    <span>Marksheet</span>
+                  </button>
+                </div>
+
+                <TiltCard maxTilt={6} className="w-full max-w-[280px] sm:max-w-[310px]">
+                  <div className="shimmer-sweep rounded-xl overflow-hidden drop-shadow-md hover:drop-shadow-xl transition-all duration-300 group cursor-pointer bg-white p-2 border border-gold-200/80">
                     <img
-                      src={siteImages.certificatePreview}
-                      alt="BCSVE Certificate of Completion"
+                      src={previewImage}
+                      alt={activePreviewType === 'cert' ? "Official BCSVE Certificate" : "Official BCSVE Result Cum Marks Certificate"}
                       className="w-full aspect-[4/3] object-contain rounded-lg group-hover:scale-[1.02] transition-transform duration-500"
                       width={380}
                       height={285}
@@ -83,10 +116,29 @@ export default function VerificationSection() {
                     />
                   </div>
                 </TiltCard>
+
+                <p className="text-[10px] text-gray-500 text-center font-sans max-w-xs">
+                  Official format issued by <span className="font-semibold text-gray-700">Office of the Central Board of Examinations, BCSVE Council</span>
+                </p>
               </div>
 
               {/* Right: Verification Form & Info (Span 7) */}
               <div className="lg:col-span-7 space-y-3 text-left font-sans">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <span className="text-[10px] font-bold text-bcsve-900 bg-white border border-bcsve-200 px-2 py-0.5 rounded">
+                    Central Registry
+                  </span>
+                  <a
+                    href="https://www.bcsve.skillvoc.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-semibold text-gold-700 hover:text-bcsve-900 flex items-center gap-1 bg-white border border-gold-200 px-2 py-0.5 rounded"
+                  >
+                    <span>Portal: www.bcsve.skillvoc.in</span>
+                    <ExternalLink size={10} />
+                  </a>
+                </div>
+
                 <SectionHeading
                   tag={verification.tag}
                   heading={verification.heading}
@@ -108,7 +160,7 @@ export default function VerificationSection() {
                         required
                         value={certInput}
                         onChange={(e) => setCertInput(e.target.value)}
-                        placeholder="Enrollment / Cert No."
+                        placeholder="Enrollment No. / Roll No."
                         className="w-full h-9 min-h-[36px] pl-8 pr-3 bg-white rounded-lg border border-bcsve-200/90 focus:outline-none focus:ring-1 focus:ring-bcsve-800/20 focus:border-bcsve-800 text-xs font-medium text-gray-800 shadow-xs transition-all duration-200 font-sans"
                       />
                     </div>
@@ -150,7 +202,7 @@ export default function VerificationSection() {
                   </div>
                 </form>
 
-                {/* Error Alert with Shake Animation */}
+                {/* Error Alert */}
                 {errorMsg && (
                   <div className="p-2.5 bg-red-50 border border-red-200 rounded-lg flex items-center gap-1.5 text-xs text-red-700 animate-shake font-sans">
                     <AlertCircle size={14} className="shrink-0 text-red-600" />
@@ -158,7 +210,7 @@ export default function VerificationSection() {
                   </div>
                 )}
 
-                {/* Verification Success Box with Slide & Pop-in Check */}
+                {/* Verification Success Box */}
                 {searchResult && (
                   <div className="p-3 sm:p-3.5 bg-white rounded-xl border border-emerald-500/80 shadow-card animate-fadeIn space-y-2 font-sans max-w-xl">
                     <div className="flex items-center justify-between border-b border-gray-100 pb-1.5">
@@ -167,7 +219,7 @@ export default function VerificationSection() {
                         <span>{searchResult.status}</span>
                       </div>
                       <span className="font-mono text-[10.5px] font-semibold text-gray-600 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-200">
-                        ID: {searchResult.id}
+                        Reg: {searchResult.regNo || searchResult.id}
                       </span>
                     </div>
 
@@ -177,11 +229,11 @@ export default function VerificationSection() {
                         <span className="font-bold text-gray-950 text-xs sm:text-sm">{searchResult.name}</span>
                       </div>
                       <div>
-                        <span className="text-gray-400 block text-[9.5px] uppercase font-bold tracking-wider">Course</span>
+                        <span className="text-gray-400 block text-[9.5px] uppercase font-bold tracking-wider">Course Awarded</span>
                         <span className="font-semibold text-gray-900 text-xs">{searchResult.course}</span>
                       </div>
                       <div>
-                        <span className="text-gray-400 block text-[9.5px] uppercase font-bold tracking-wider">Grade</span>
+                        <span className="text-gray-400 block text-[9.5px] uppercase font-bold tracking-wider">Grade / Division</span>
                         <span className="font-bold text-bcsve-800 text-xs">{searchResult.grade}</span>
                       </div>
                       <div>
@@ -189,12 +241,37 @@ export default function VerificationSection() {
                         <span className="font-medium text-gray-700 text-xs">{searchResult.issueDate}</span>
                       </div>
                       <div className="sm:col-span-2 pt-1.5 border-t border-gray-100">
-                        <span className="text-gray-400 block text-[9.5px] uppercase font-bold tracking-wider">Accredited Centre</span>
-                        <span className="font-medium text-gray-700 text-xs">{searchResult.centre}</span>
+                        <span className="text-gray-400 block text-[9.5px] uppercase font-bold tracking-wider">Issuing Examination Office</span>
+                        <span className="font-medium text-gray-700 text-xs">Office of the Central Board of Examinations, BCSVE Council, Noida-201304</span>
                       </div>
                     </div>
                   </div>
                 )}
+
+                {/* Grading Standards Banner from Marksheet */}
+                <div className="pt-2 border-t border-bcsve-100/70">
+                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">
+                    Official Council Grading Standards
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-[10.5px]">
+                    <div className="p-1.5 rounded bg-white border border-gray-200 text-left">
+                      <span className="font-bold text-bcsve-950 block">Grade A+</span>
+                      <span className="text-gray-500 text-[9.5px]">80% and above (Distinction)</span>
+                    </div>
+                    <div className="p-1.5 rounded bg-white border border-gray-200 text-left">
+                      <span className="font-bold text-bcsve-950 block">Grade A</span>
+                      <span className="text-gray-500 text-[9.5px]">60% & above (First Div)</span>
+                    </div>
+                    <div className="p-1.5 rounded bg-white border border-gray-200 text-left">
+                      <span className="font-bold text-bcsve-950 block">Grade B</span>
+                      <span className="text-gray-500 text-[9.5px]">50% & above (Second Div)</span>
+                    </div>
+                    <div className="p-1.5 rounded bg-white border border-gray-200 text-left">
+                      <span className="font-bold text-bcsve-950 block">Grade C</span>
+                      <span className="text-gray-500 text-[9.5px]">40% & above (Min Pass)</span>
+                    </div>
+                  </div>
+                </div>
 
               </div>
 

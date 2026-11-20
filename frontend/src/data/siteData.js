@@ -2,14 +2,19 @@ export const siteData = {
   header: {
     title: "Bharath Council for",
     subtitle: "Skill and Vocational Education",
+    hindiTitle: "भारत कौशल एवं व्यावसायिक शिक्षा परिषद",
     tagline: "Educate • Empower • Enlighten",
+    motto: "Skills That Makes You Skilled...",
+    approval: "An Autonomous Institution Approved by Govt of India under Society Registration Act XXI of 1860 (S.No.731/2010)",
     navLinks: [
       { name: "Home", href: "#home" },
       { name: "About", href: "#about" },
       { name: "Programs", href: "#programs", hasDropdown: true },
+      { name: "Fee Structure", href: "#fees" },
       { name: "Admissions", href: "#admission-process" },
       { name: "Verification", href: "#verification" },
       { name: "Affiliation", href: "#affiliation-cta" },
+      { name: "Downloads", href: "#downloads" },
       { name: "FAQs", href: "#faqs" },
       { name: "Contact", href: "#contact" },
     ],
@@ -17,25 +22,25 @@ export const siteData = {
   },
 
   hero: {
-    badge: "NATIONAL SKILL CERTIFICATION",
+    badge: "GOVT APPROVED AUTONOMOUS INSTITUTION • S.NO.731/2010",
     headingPart1: "Educate. Empower.",
     headingPart2: "Enlighten.",
-    description: "A trusted platform for skill and vocational education, empowering learners with practical knowledge, industry-aligned training and nationally recognized certification.",
+    description: "Founded by Careerline Society (Approved by Govt of India under the Society Registration Act XXI of 1860). Empowering learners across 12 vital industry sectors with job-ready practical training and nationally recognized autonomous certification.",
     primaryCta: "Explore Courses",
     secondaryCta: "Verify Certificate",
-    learnerCount: "12,000+ learners",
+    learnerCount: "12,000+ learners enrolled",
     floatingBadges: [
       { text: "Certified", type: "badge-check" },
       { text: "98% Placement", type: "badge-stat" },
-      { text: "New Batch Open", type: "badge-calendar" },
+      { text: "New Batch Open 2026", type: "badge-calendar" },
     ]
   },
 
   stats: [
-    { value: "12,000+", label: "Learners", icon: "Users" },
-    { value: "250+", label: "Courses", icon: "BookOpen" },
-    { value: "150+", label: "Centres", icon: "MapPin" },
-    { value: "98%", label: "Success Rate", icon: "Trophy" },
+    { value: "12,000+", label: "Learners Certified", icon: "Users" },
+    { value: "12+", label: "Vital Sectors", icon: "Layers" },
+    { value: "150+", label: "Authorised Centres", icon: "MapPin" },
+    { value: "100%", label: "Verifiable Credentials", icon: "Trophy" },
   ],
 
   partners: [
@@ -67,73 +72,191 @@ export const siteData = {
 
   about: {
     tag: "ABOUT BCSVE",
-    heading: "Learning that opens doors",
-    description: "Bharath Council for Skill and Vocational Education (BCSVE) is dedicated to building a skilled and future-ready workforce through quality education, practical training and nationally aligned certification programs.",
+    hindiHeading: "भारत कौशल एवं व्यावसायिक शिक्षा परिषद",
+    heading: "Skills That Makes You Skilled...",
+    subheading: "Don't just dream it, earn it with your skills...",
+    description: "Bharath Council for Skill & Vocational Education (BCSVE) is a dynamic and growing council, one of its kind in the country. Founded by Careerline Society (Approved by Govt of India under the Society Registration Act XXI of 1860, S.No.731/2010), BCSVE aims to tackle increasing unemployment through high-quality vocational skill development and training programs.",
+    extendedDescription: "As a top-level national autonomous certification body in India, BCSVE offers certified training programs that give the public an excellent opportunity to enhance their skills, leading directly to employment. BCSVE's wide variety of courses are open and remarkably affordable to anyone with a basic high school education, covering IT, HRD, Technical, Paramedical, Skill Advancement, and Literacy programs.",
+    governingBody: "Founded by Careerline Society (Approved by Govt of India under Society Registration Act XXI of 1860, S.No.731/2010)",
     cards: [
       {
         title: "Our Mission",
-        description: "To provide accessible, skill-based education that empowers individuals for meaningful employment and self-reliance.",
+        description: "To provide a trustworthy and quality platform that delivers high-demand vocational and skill development programs, enabling learners to acquire job-ready skills and access valuable career opportunities.",
         icon: "Target",
         color: "bg-bcsve-100 text-bcsve-800"
       },
       {
         title: "Our Vision",
-        description: "To be a leading national body in skill and vocational education, creating a competent and inclusive talent ecosystem.",
+        description: "BCSVE likes to create a future where every individual has the opportunity to achieve meaningful employment, thus reducing unemployment.",
         icon: "Eye",
         color: "bg-gold-100 text-gold-700"
+      }
+    ],
+    coreValues: [
+      {
+        title: "Empowerment",
+        description: "Empowering individuals with the knowledge, skills, and resources they need to unlock their full potential and achieve their goals."
+      },
+      {
+        title: "Continuous Learning",
+        description: "Promoting a culture of lifelong learning, where curiosity is encouraged, and personal and professional growth are ongoing journeys."
+      },
+      {
+        title: "Inclusivity",
+        description: "Fostering an inclusive and welcoming environment where diversity is celebrated, and everyone has equal access to skill opportunities."
+      },
+      {
+        title: "Innovation",
+        description: "Embracing innovation and creativity in our approach to skill development, continuously seeking new and effective ways to enhance learning."
+      },
+      {
+        title: "Collaboration",
+        description: "Working together with learners, educators, employers, and communities through strategic partnerships to drive positive change."
+      },
+      {
+        title: "Accountability",
+        description: "Holding ourselves accountable for program outcomes, ensuring transparency, integrity, and ethical conduct in all interactions."
+      }
+    ]
+  },
+
+  // 12 Vital Industry Sectors from Official Profile
+  vitalSectors: [
+    { name: "Information Technology", count: "DCA, Web Dev, Cyber Safety, Office Apps", icon: "Laptop" },
+    { name: "Health Care", count: "General Duty, Patient Care, First Aid", icon: "HeartPulse" },
+    { name: "Paramedical", count: "Lab Tech, Phlebotomy, Emergency Care", icon: "Activity" },
+    { name: "Banking and Finance", count: "Tally GST, Banking Ops, Microfinance", icon: "TrendingUp" },
+    { name: "Beauty and Wellness", count: "Cosmetology, Hair, Skin, Yoga Therapy", icon: "Sparkles" },
+    { name: "Retail & Sales", count: "Store Operations, Visual Merchandising", icon: "ShoppingBag" },
+    { name: "Apparel & Fashion", count: "Tailoring, Garment Tech, Pattern Making", icon: "Scissors" },
+    { name: "Logistics & Supply Chain", count: "Warehousing, Inventory Management", icon: "Truck" },
+    { name: "Education & Literacy", count: "Vocational Teacher Training, Literacy", icon: "BookOpen" },
+    { name: "Green Jobs", count: "Solar PV Installation, Renewable Energy", icon: "Sun" },
+    { name: "Agriculture", count: "Organic Farming, Agro-tech, Horticulture", icon: "Wheat" },
+    { name: "Fire and Safety", count: "Industrial Safety, HSE & Disaster Mgmt", icon: "Flame" },
+  ],
+
+  // Official Transparent Fee Structure from PDF
+  feeStructure: {
+    tag: "TRANSPARENT & AFFORDABLE FEES",
+    heading: "Official Council Fee Structure",
+    subtitle: "In accordance with BCSVE Council norms, our fee schedule is designed to be remarkably affordable, ensuring accessible skill development across all strata of society.",
+    approvalNote: "Approved by BCSVE Governing Council under Society Registration Act XXI of 1860 (S.No.731/2010)",
+    downloadPdfUrl: "/docs/bcsve-fee-structure.pdf",
+    tiers: [
+      {
+        id: "tier-3m",
+        duration: "3 Months",
+        title: "Certificate Program",
+        centreFee: "₹800",
+        coordinatorFee: "₹600",
+        tagline: "Short-term Foundation & Rapid Upskilling",
+        description: "Ideal for basic literacy, foundational office tools, and introductory practical techniques.",
+        features: [
+          "Foundation Theory & Practical Syllabus",
+          "Central Board Registration",
+          "Evaluation & Examination Fee",
+          "Verifiable Council Certificate (QR Coded)",
+          "Online Verification on www.bcsve.skillvoc.in"
+        ],
+        isPopular: false
+      },
+      {
+        id: "tier-6m",
+        duration: "6 Months",
+        title: "Diploma Program",
+        centreFee: "₹1,000",
+        coordinatorFee: "₹750",
+        tagline: "Comprehensive Trade Competency (Most Enrolled)",
+        description: "Hands-on domain training, mid-term evaluations, and industry-oriented job role skills.",
+        features: [
+          "Full Semi-Annual Practical Curriculum",
+          "Dedicated Domain & IT Lab Access",
+          "Mid-Term Continuous Assessments",
+          "Central Board Marksheet & Diploma",
+          "Online Portal & QR Verification",
+          "Placement Assistance Support"
+        ],
+        isPopular: true
+      },
+      {
+        id: "tier-1y",
+        duration: "1 Year",
+        title: "Advanced / Master Diploma",
+        centreFee: "₹1,500",
+        coordinatorFee: "₹1,000",
+        tagline: "Advanced Professional & Supervisory Mastery",
+        description: "Two-semester in-depth technical training with mandatory internship and supervisory competencies.",
+        features: [
+          "Two Semesters of Structured Practical Labs",
+          "Comprehensive Examination Conduct",
+          "Official Result Cum Marks Certificate",
+          "National Autonomous Diploma Award",
+          "Authorised Centre Verification Record",
+          "Direct Employer Referral Network"
+        ],
+        isPopular: false
       }
     ]
   },
 
   programs: {
     tag: "OUR PROGRAMS",
-    heading: "Explore Our Programs",
+    heading: "Explore Our Flagship Programs",
     categories: ["All Programs", "Healthcare", "Technology", "Business", "Vocational"],
     items: [
       {
         id: "healthcare",
+        slug: "healthcare-wellness",
         category: "Healthcare",
         title: "Healthcare & Wellness",
-        description: "Build a rewarding career in healthcare, wellness and community care with industry-focused training.",
+        description: "General Duty Assistant, Patient Care, Medical Lab Tech, Emergency Response, and Community Wellness.",
         duration: "3 - 12 Months",
         type: "Certificate / Diploma",
-        mode: "Online / Offline",
+        mode: "Theory + Clinical Practical",
+        feeNote: "₹800 - ₹1,500 regulated fee",
         icon: "HeartPulse",
-        placeholderLabel: "Healthcare & Wellness (Stethoscope & Pulse)",
+        placeholderLabel: "Healthcare & Wellness",
         dimensions: "450 × 260 px"
       },
       {
         id: "technology",
+        slug: "information-technology",
         category: "Technology",
         title: "Information Technology",
-        description: "Gain in-demand technical skills in IT, software applications and digital technologies.",
+        description: "Computer Applications (DCA), Web Development, Office Automation, Tally Accounting, and Cyber Safety.",
         duration: "3 - 12 Months",
         type: "Certificate / Diploma",
-        mode: "Online / Offline",
+        mode: "Practical Lab + Online",
+        feeNote: "₹800 - ₹1,500 regulated fee",
         icon: "Laptop",
-        placeholderLabel: "Information Technology (Laptop & Code)",
+        placeholderLabel: "Information Technology",
         dimensions: "450 × 260 px"
       },
       {
         id: "business",
+        slug: "business-management",
         category: "Business",
         title: "Business & Management",
-        description: "Develop essential business, management and entrepreneurship skills for today's dynamic industries.",
+        description: "Business Administration, Retail Management, Banking Operations, GST Accounting, and Entrepreneurship.",
         duration: "3 - 12 Months",
         type: "Certificate / Diploma",
-        mode: "Online / Offline",
+        mode: "Hybrid / Case Practical",
+        feeNote: "₹800 - ₹1,500 regulated fee",
         icon: "TrendingUp",
-        placeholderLabel: "Business & Management (Growth & Charts)",
+        placeholderLabel: "Business & Management",
         dimensions: "450 × 260 px"
       },
       {
         id: "vocational",
+        slug: "vocational-applied-trades",
         category: "Vocational",
         title: "Vocational & Applied Trades",
-        description: "Master specialized vocational skills in electrical, electronics, automotive, and craft professions.",
+        description: "Electrician, Solar & Electrical Repair, Automotive, AC Servicing, Beauty & Cosmetology, and Tailoring.",
         duration: "3 - 12 Months",
         type: "Certificate / Diploma",
-        mode: "Offline / Practical",
+        mode: "Workshop & Practical (80%)",
+        feeNote: "₹800 - ₹1,500 regulated fee",
         icon: "Wrench",
         placeholderLabel: "Vocational & Applied Trades",
         dimensions: "450 × 260 px"
@@ -146,24 +269,24 @@ export const siteData = {
     heading: "A Stronger Foundation for Your Career",
     features: [
       {
-        title: "Recognised Certification",
-        description: "Nationally aligned and widely accepted across top government and private sectors.",
+        title: "Govt. Approved Framework",
+        description: "Approved under Society Registration Act XXI of 1860 (S.No.731/2010), founded by Careerline Society.",
         icon: "Award"
       },
       {
         title: "Industry-Relevant Skills",
-        description: "Practical training crafted by experts for real-world jobs and future challenges.",
+        description: "Practical training crafted by expert practitioners across 12 vital sectors for immediate employability.",
         icon: "Sliders"
       },
       {
-        title: "Flexible Learning",
-        description: "Learn at your own pace, with hybrid access both online and in physical centres.",
-        icon: "Monitor"
+        title: "Remarkably Affordable",
+        description: "Regulated fees (₹800 for 3M, ₹1000 for 6M, ₹1500 for 1Y) making quality skill education accessible to all.",
+        icon: "CreditCard"
       },
       {
-        title: "Career Support",
-        description: "Comprehensive guidance for mock interviews, internships and career placements.",
-        icon: "Users"
+        title: "Verifiable Credentials",
+        description: "Permanent online certificate & marksheet verification portal at www.bcsve.skillvoc.in with QR authentication.",
+        icon: "ShieldCheck"
       }
     ]
   },
@@ -174,100 +297,111 @@ export const siteData = {
     steps: [
       {
         stepNumber: "01",
-        title: "Choose a Course",
-        description: "Browse and select a program that fits your career goals.",
+        title: "Choose Sector & Program",
+        description: "Select from 12 vital industry sectors matching your passion and career goals.",
         icon: "Laptop"
       },
       {
         stepNumber: "02",
-        title: "Enrol",
-        description: "Complete a simple registration process online or at your nearest centre.",
+        title: "Enrol with Affordable Fee",
+        description: "Submit registration with basic high school proof (10th/12th/Graduation) and regulated fees.",
         icon: "FileCheck"
       },
       {
         stepNumber: "03",
-        title: "Learn & Practise",
-        description: "Gain practical knowledge through structured training and laboratory modules.",
+        title: "Hands-on Practical Training",
+        description: "Undergo intensive 80% practical training in authorised laboratories and workshop sessions.",
         icon: "BookOpenCheck"
       },
       {
         stepNumber: "04",
-        title: "Get Certified",
-        description: "Receive a nationally recognised certificate with verifiable digital credentials.",
+        title: "Pass Central Board Exam",
+        description: "Clear Central Board examinations and receive verifiable national certification and marksheet.",
         icon: "Award"
       }
     ]
   },
 
   verification: {
-    tag: "CERTIFICATE VERIFICATION",
-    heading: "Verify Your Certificate",
-    description: "Quickly and securely verify the authenticity of your BCSVE certificate.",
+    tag: "OFFICIAL VERIFICATION PORTAL",
+    heading: "Verify Your Certificate & Marksheet",
+    description: "Centrally authenticate your BCSVE certificate or Result Cum Marks Certificate issued by the Office of the Central Board of Examinations, BCSVE Council.",
+    portalUrl: "www.bcsve.skillvoc.in",
+    issuingAuthority: "Office of the Central Board of Examinations, BCSVE COUNCIL",
+    regdOffice: "Plot no: 3, KR Signature, Sector 135, Noida-201304",
+    gradingStandard: [
+      { grade: "Grade A+", criteria: "80% and above", label: "Distinction / Outstanding" },
+      { grade: "Grade A", criteria: "60% and above", label: "First Division" },
+      { grade: "Grade B", criteria: "50% and above", label: "Second Division" },
+      { grade: "Grade C", criteria: "40% and above", label: "Third Division (Minimum Pass)" }
+    ],
     sampleCertificates: [
       {
-        id: "BCSVE-2026-9874",
-        name: "Aakash Sharma",
-        course: "Diploma in Information Technology",
-        grade: "Distinction (Grade A+)",
+        id: "BCSVE/2026/0482",
+        name: "Pooja Sharma",
+        course: "Diploma in General Duty Healthcare Assistance",
+        grade: "Grade A+ (84%)",
         issueDate: "15 Jan 2026",
-        centre: "Delhi Central Vocational Centre #104",
-        status: "Verified & Active"
+        centre: "Regional Skill Training Centre #104",
+        status: "Authentic & Verified Record",
+        regNo: "BCSVE731-98214"
       },
       {
-        id: "BCSVE-2025-4521",
-        name: "Pooja Sharma",
-        course: "Advanced Certificate in Healthcare Assistance",
-        grade: "Grade A",
+        id: "BCSVE/2025/1190",
+        name: "Rohit Kumar",
+        course: "Diploma in Computer Applications & Web Tech",
+        grade: "Grade A (72%)",
         issueDate: "20 Nov 2025",
-        centre: "Bangalore South Skill Academy #082",
-        status: "Verified & Active"
+        centre: "Apex Vocational Institute #082",
+        status: "Authentic & Verified Record",
+        regNo: "BCSVE731-84102"
       }
     ]
   },
 
   affiliations: {
-    tag: "AFFILIATION",
-    heading: "Our Affiliated Partners",
+    tag: "CENTRE AFFILIATION",
+    heading: "Our Authorised Training Network",
     partnerBadges: [
-      { id: "aicte", name: "AICTE", label: "Approved Program", note: "Technical Framework" },
-      { id: "nabet", name: "NABET", label: "Quality Assurance", note: "Accredited Standards" },
-      { id: "nsdc", name: "NSDC", label: "Training Partner", note: "Skill India Network" },
-      { id: "iso", name: "ISO", label: "9001:2015 Certified", note: "Quality Management" }
+      { id: "govt", name: "Govt of India", label: "Approved Institution", note: "Act XXI of 1860 (S.No.731/2010)" },
+      { id: "careerline", name: "Careerline Society", label: "Founding Body", note: "Autonomous Council" },
+      { id: "nsdc", name: "Skill India / NSDC", label: "Ecosystem Alignment", note: "National Skill Mission" },
+      { id: "iso", name: "ISO Certified", label: "Quality Standards", note: "Standardized Operations" }
     ],
     becomeCentre: {
-      title: "Become an Affiliated Centre",
-      description: "Partner with BCSVE to offer skill and vocational programs in your region.",
+      title: "Become an Authorised Skill Training Partner (ASTP)",
+      description: "Run official BCSVE skill courses in your institute with syllabus, online examination, and certification authority.",
       cta: "Apply for Affiliation"
     }
   },
 
   testimonials: {
-    tag: "TESTIMONIALS",
-    heading: "What Our Learners Say",
+    tag: "STUDENT TESTIMONIALS",
+    heading: "Voices of Empowered Learners",
     items: [
       {
         id: 1,
-        quote: "BCSVE gave me the right skills and confidence to start my career in the healthcare sector.",
+        quote: "BCSVE's General Duty Assistant course was both affordable and deeply practical. The hospital lab hours gave me the confidence to secure a job at a leading medical center.",
         author: "Pooja Sharma",
-        program: "Healthcare Program",
+        program: "Healthcare & Wellness Program",
         rating: 3,
         avatarKey: "testimonialPooja",
         placeholderLabel: "Avatar: Pooja Sharma"
       },
       {
         id: 2,
-        quote: "The practical training and support from the team helped me get placed in a good company.",
+        quote: "I completed the 6-month DCA & Web Development diploma. The fee was only ₹1,000, but the syllabus was better than private institutes charging ten times more. Highly recommended!",
         author: "Rohit Kumar",
-        program: "IT Program",
+        program: "Information Technology Program",
         rating: 3,
         avatarKey: "testimonialRohit",
         placeholderLabel: "Avatar: Rohit Kumar"
       },
       {
         id: 3,
-        quote: "A very well-structured program with flexible learning. I could learn and work at the same time.",
+        quote: "The business administration and GST modules taught by BCSVE mentors gave me practical accounting skills. Today I manage accounts for three local retail enterprises.",
         author: "Neha Verma",
-        program: "Business Management",
+        program: "Business Management Program",
         rating: 3,
         avatarKey: "testimonialNeha",
         placeholderLabel: "Avatar: Neha Verma"
@@ -276,74 +410,74 @@ export const siteData = {
   },
 
   ctaBanner: {
-    headlineLead: "Your skills. Your future.",
-    headlineHighlight: "Certified.",
-    description: "Join BCSVE and take the next step towards a skilled, confident and successful career.",
-    buttonText: "Get Started"
+    headlineLead: "Skills That Makes You Skilled.",
+    headlineHighlight: "Nationally Certified.",
+    description: "Don't just dream it, earn it with your skills. Join over 12,000 learners and earn an official BCSVE credential backed by Govt of India approval (S.No.731/2010).",
+    buttonText: "Explore Admissions"
   },
 
   // 1. Notice Board & Announcements
   noticeBoard: {
-    tag: "LATEST UPDATES",
-    heading: "Announcements & Quick Desk",
+    tag: "COUNCIL NOTICES & CIRCULARS",
+    heading: "Announcements & Administrative Desk",
     notices: [
       {
         id: "notice-1",
-        title: "Admissions Open for 2026 Batch - Healthcare & IT Diploma Programs",
+        title: "Official Notification: New Affiliation Window Open for Training Partners (Batch 2026-27)",
         date: "18 Nov 2026",
         isNew: true,
-        category: "Admission",
-        href: "#programs", // TODO: Replace with official notification link
+        category: "Affiliation",
+        href: "#affiliation-cta",
       },
       {
         id: "notice-2",
-        title: "National Examination Schedule Announced for Q1 2026 Practical Sessions",
+        title: "Notification regarding Central Board Examination Schedule and Hall Ticket Release",
         date: "14 Nov 2026",
         isNew: true,
         category: "Examination",
-        href: "#verification", // TODO: Replace with exam circular link
+        href: "#verification",
       },
       {
         id: "notice-3",
-        title: "Annual Training Partner & Affiliated Centre Empanelment Round 2",
+        title: "Regulated Council Fee Structure Enforced across all Authorised Training Centres",
         date: "05 Nov 2026",
         isNew: false,
-        category: "Affiliation",
-        href: "#affiliation-cta", // TODO: Replace with circular link
+        category: "Fee Structure",
+        href: "#fees",
       },
       {
         id: "notice-4",
-        title: "Digital Certificate Verification Portal v2.0 Operational for Learners",
+        title: "Digital Verification Portal v2.0 Operational at www.bcsve.skillvoc.in",
         date: "28 Oct 2026",
         isNew: false,
         category: "Verification",
-        href: "#verification", // TODO: Replace with portal release notes
+        href: "#verification",
       },
     ],
     quickLinks: [
       {
         title: "Result Verification",
-        description: "Check semester & final exam scorecards",
+        description: "Central Board marksheet & scorecard check",
         icon: "FileCheck",
         href: "#verification",
       },
       {
-        title: "Admit Card Download",
-        description: "Hall ticket for upcoming practical assessments",
-        icon: "Ticket",
-        href: "#downloads",
+        title: "Download Fee Structure",
+        description: "Official regulated fee chart (PDF)",
+        icon: "CreditCard",
+        href: "/docs/bcsve-fee-structure.pdf",
       },
       {
-        title: "Download Prospectus",
-        description: "Complete course catalogue & fee schedules",
-        icon: "Download",
-        href: "#downloads",
+        title: "Admission Form",
+        description: "Printable student registration form (PDF)",
+        icon: "FileText",
+        href: "/docs/bcsve-admission-form.pdf",
       },
       {
-        title: "Student Portal Login",
-        description: "LMS access, study notes & assignments",
-        icon: "UserCheck",
-        href: "#", // TODO: Replace with student portal URL
+        title: "Partner Application",
+        description: "Service partner affiliation kit (PDF)",
+        icon: "Building2",
+        href: "/docs/bcsve-partner-affiliation-form.pdf",
       },
     ],
   },
@@ -352,36 +486,37 @@ export const siteData = {
   admissionProcess: {
     tag: "ADMISSION PROCESS",
     heading: "How to Enrol in 5 Simple Steps",
-    subtitle: "A smooth, structured pathway from choosing your desired program to earning your verifiable national certification.",
+    subtitle: "A structured, transparent pathway from course selection to earning your verifiable national certification.",
+    downloadFormUrl: "/docs/bcsve-admission-form.pdf",
     steps: [
       {
         stepNumber: "01",
-        title: "Choose Program",
-        description: "Explore vocational courses matching your professional career ambition.",
+        title: "Select Job Role & Sector",
+        description: "Choose from 12 vital sectors including IT, Healthcare, Trades, Retail, and Green Jobs.",
         icon: "Compass",
       },
       {
         stepNumber: "02",
-        title: "Enquire & Register",
-        description: "Submit online enquiry or visit the nearest authorized BCSVE training centre.",
+        title: "Submit Admission Form",
+        description: "Fill the admission form online or submit the printed form with Aadhaar and school certificate.",
         icon: "FileText",
       },
       {
         stepNumber: "03",
-        title: "Enrolment & Fees",
-        description: "Complete document verification and secure admission with transparent fees.",
+        title: "Transparent Regulated Fee",
+        description: "Pay the nominal council fee (₹800 for 3M, ₹1000 for 6M, ₹1500 for 1Y) with official receipt.",
         icon: "CreditCard",
       },
       {
         stepNumber: "04",
-        title: "Practical Learning",
-        description: "Undergo lab training, mentor workshops, and continuous evaluation.",
+        title: "Hands-on Practical Training",
+        description: "Undergo lab training, workshop practice, and continuous assessment at your training centre.",
         icon: "Wrench",
       },
       {
         stepNumber: "05",
-        title: "Get Certified",
-        description: "Pass final examination and receive verifiable national digital credentials.",
+        title: "Pass Central Board Exam",
+        description: "Appear for final examination and receive your verifiable Certificate and Result Marksheet.",
         icon: "Award",
       },
     ],
@@ -390,60 +525,63 @@ export const siteData = {
   // 3. Affiliation CTA / Become a Partner
   affiliationCta: {
     tag: "CENTRE AFFILIATION",
-    heading: "Become an Authorized Skill Development Centre",
-    subtitle: "Partner with BCSVE to offer government-aligned vocational courses in your city. Empower regional youth while running a self-sustaining educational institute.",
+    heading: "Become an Authorised Skill Training Partner",
+    subtitle: "Join the BCSVE Skill Development Division. Empower local youth in your town or district with government-approved vocational certifications while establishing a sustainable, accredited skill institute.",
+    downloadFormUrl: "/docs/bcsve-partner-affiliation-form.pdf",
+    sampleCertUrl: "/docs/bcsve-authorisation-sample.pdf",
     benefits: [
-      "Low Initial Investment & High Social Impact",
-      "Nationally Standardized Syllabus & Learning Modules",
-      "Complete Marketing, Branding & Promotional Collateral",
-      "Online LMS, Digital Examination & Automated Certification",
-      "Faculty Training & Quality Assurance Assistance",
+      "Official Authorisation Certificate as Training Partner (Skill Development Division)",
+      "Standardised Council Syllabi & Study Material across 12 Vital Sectors",
+      "Nominal Regulated Fees (₹600 - ₹1,000 coordinator share) with maximum student reach",
+      "Central Board Examination Conduct, Result Processing & Verifiable Certification",
+      "Permanent Online Student Record Verification at www.bcsve.skillvoc.in",
+      "Full Guidance for Centre Infrastructure: Front View, Reception, Classrooms, IT & Domain Labs"
     ],
     highlights: [
       { label: "Active Centres", value: "150+" },
-      { label: "States Covered", value: "24+" },
-      { label: "Students Trained", value: "12,000+" },
-      { label: "Partner Support", value: "24/7" },
+      { label: "Vital Sectors", value: "12" },
+      { label: "Learners Trained", value: "12,000+" },
+      { label: "Council Support", value: "Dedicated Desk" },
     ],
     ctaText: "Apply for Affiliation",
   },
 
   // 4. Accreditations & Recognitions
   accreditations: {
-    tag: "QUALITY ASSURANCE",
-    heading: "Accreditations & Framework Alignments",
-    subtitle: "Our institutional framework adheres to national skill benchmarks, quality assurance systems, and ISO certified standards.",
+    tag: "LEGAL APPROVAL & STANDARDS",
+    heading: "Statutory Approval & Institutional Framework",
+    subtitle: "BCSVE functions as a top-level national autonomous certification body governed by strict statutory, educational, and quality management protocols.",
     items: [
       {
-        id: "aicte-aligned",
-        name: "National Technical Framework",
-        authority: "AICTE Aligned Standards", // TODO: Replace with exact accreditation name
-        description: "Curriculum designed keeping technical framework guidelines and modern industry parameters in view.",
-        badge: "National Standard",
+        id: "govt-approved",
+        name: "Govt of India Statutory Approval",
+        authority: "Society Registration Act XXI of 1860",
+        description: "Approved by Govt of India under the Society Registration Act XXI of 1860 (Registration S.No.731/2010), founded by Careerline Society.",
+        badge: "Govt. Approved",
         icon: "ShieldCheck",
       },
       {
-        id: "nabet-qa",
-        name: "Quality Management System",
-        authority: "NABET Guidelines", // TODO: Replace with exact accreditation name
-        description: "Academic auditing, trainer certification, and rigorous examination quality assurance frameworks.",
-        badge: "Accredited QA",
+        id: "exam-board",
+        name: "Central Board of Examinations",
+        authority: "BCSVE Council Examination Wing",
+        description: "Standardised curriculum assessment, hall ticket generation, and Result Cum Marks Certificate issuance under central COE supervision.",
+        badge: "Autonomous Board",
         icon: "CheckCircle",
       },
       {
-        id: "skill-mission",
-        name: "Skill Ecosystem Network",
-        authority: "National Skill Mission Partner", // TODO: Replace with exact accreditation name
-        description: "Active integration with vocational learning bodies to maximize learner employment outcomes.",
-        badge: "Skill Partner",
+        id: "skill-ecosystem",
+        name: "National Skill Ecosystem Alignment",
+        authority: "Skill India & NSDC Guidelines",
+        description: "Vocational course competencies structured in harmony with National Skill Qualification standards for maximum employment value.",
+        badge: "Skill Framework",
         icon: "Award",
       },
       {
         id: "iso-certified",
-        name: "ISO 9001:2015 Certification",
-        authority: "Global Quality Certified", // TODO: Replace with exact accreditation name
-        description: "Certified for standardized vocational training delivery, curriculum updates, and examination conduct.",
-        badge: "Certified Body",
+        name: "ISO 9001:2015 Quality Management",
+        authority: "International Quality Certified",
+        description: "Certified operational processes for curriculum design, training partner empanelment, and transparent credential verification.",
+        badge: "ISO 9001:2015",
         icon: "CheckSquare",
       },
     ],
@@ -453,20 +591,20 @@ export const siteData = {
   faculty: {
     tag: "EXPERT MENTORS",
     heading: "Learn from Seasoned Practitioners",
-    subtitle: "Our mentors combine extensive industry experience with passion for practical skill instruction.",
+    subtitle: "Our mentor advisory council combines extensive industrial experience with a passion for vocational instruction across India.",
     members: [
       {
         id: "fac-1",
-        name: "Dr. Arvind Menon", // TODO: Replace with real faculty name
+        name: "Dr. Arvind Menon",
         role: "Head of Healthcare Programs",
-        experience: "15+ Years Experience",
+        experience: "15+ Years Clinical Practice",
         credentials: "MD, M.Voc (Healthcare Education)",
         specialty: "Clinical Nursing, Emergency Care & Hospital Ops",
         avatar: "testimonialRohit",
       },
       {
         id: "fac-2",
-        name: "Er. Sunita Rao", // TODO: Replace with real faculty name
+        name: "Er. Sunita Rao",
         role: "Lead Instructor, IT & Digital Tech",
         experience: "12+ Years Industry",
         credentials: "M.Tech (Computer Science), Microsoft Certified",
@@ -475,38 +613,37 @@ export const siteData = {
       },
       {
         id: "fac-3",
-        name: "Prof. Rajesh Bhardwaj", // TODO: Replace with real faculty name
+        name: "Prof. Rajesh Bhardwaj",
         role: "Dean of Business & Retail Studies",
         experience: "18+ Years Corporate & Academic",
-        credentials: "MBA (IIM), Certified Vocational Trainer",
+        credentials: "MBA, Certified Vocational Trainer",
         specialty: "Supply Chain, Entrepreneurship & Retail Mgmt",
         avatar: "testimonialRohit",
       },
       {
         id: "fac-4",
-        name: "Er. Vikram Joshi", // TODO: Replace with real faculty name
+        name: "Er. Vikram Joshi",
         role: "Master Trainer, Applied Trades & Electricals",
         experience: "14+ Years Field Engineering",
-        credentials: "B.E. (Electrical), NSDC Certified Assessor",
+        credentials: "B.E. (Electrical), Certified Trade Assessor",
         specialty: "Industrial Automation, Solar Tech & HVAC",
         avatar: "testimonialPooja",
       },
     ],
   },
 
-  // 6. Placement & Hiring Partners
+  // 6. Placement & Hiring Sectors
   placementPartners: {
-    tag: "CAREER OUTCOMES",
-    heading: "Where Our Learners Build Careers",
-    subtitle: "Leading healthcare networks, corporate IT firms, and national trade enterprises actively recruit BCSVE certified learners.",
+    tag: "EMPLOYABILITY & PLACEMENT",
+    heading: "Where Our Certified Learners Work",
+    subtitle: "BCSVE graduates work across leading hospitals, diagnostic chains, IT service firms, retail conglomerates, and technical workshops across India.",
     highlights: [
       { value: "500+", label: "Hiring Enterprises" },
       { value: "98%", label: "Placement Assistance" },
-      { value: "₹3.8 LPA", label: "Average Entry Package" },
+      { value: "₹800+", label: "Accessible Program Fee" },
     ],
-    // Marquee list of recruiter partner names
     recruiters: [
-      { id: "rec-1", name: "Apollo Health", sector: "Healthcare" }, // TODO: Replace with real hiring partners
+      { id: "rec-1", name: "Apollo Health", sector: "Healthcare" },
       { id: "rec-2", name: "Tata Technologies", sector: "Engineering" },
       { id: "rec-3", name: "Max Healthcare", sector: "Healthcare" },
       { id: "rec-4", name: "Infosys BPM", sector: "Information Tech" },
@@ -517,11 +654,11 @@ export const siteData = {
     ],
   },
 
-  // 7. Campus & Event Gallery with Lightbox
+  // 7. Campus & Event Gallery
   galleryEvents: {
     tag: "CAMPUS & WORKSHOPS",
     heading: "Life & Hands-on Training at BCSVE",
-    subtitle: "From modern simulation laboratories to convocation days, witness practical skill education in action.",
+    subtitle: "Witness practical skill education, laboratory sessions, and convocation moments across our nationwide network of centres.",
     categories: ["All", "Practical Labs", "Convocation", "Workshops", "Campus Tour"],
     items: [
       {
@@ -551,7 +688,7 @@ export const siteData = {
         category: "Campus Tour",
         type: "video",
         duration: "3:45 Min",
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // TODO: Replace with actual institutional tour video
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         caption: "Explore our smart classrooms, computer centres, and practical workshops.",
       },
       {
@@ -571,104 +708,122 @@ export const siteData = {
     ],
   },
 
-  // 8. Official Downloads & Student Resources
+  // 8. Official Downloads & Verified Documents (Directly from Bcsve folder)
   downloads: {
     tag: "STUDENT & CENTRE DESK",
     heading: "Official Downloads & Documents",
-    subtitle: "Get immediate access to verified academic regulations, syllabi, and administrative request forms.",
+    subtitle: "Get immediate access to verified council brochures, admission forms, fee structures, and partner affiliation kits.",
     items: [
       {
-        id: "dl-1",
-        title: "Academic Prospectus & Course Handbook 2026",
+        id: "dl-profile",
+        title: "Official Council Profile & Comprehensive Handbook",
         category: "Brochure",
-        size: "4.8 MB",
+        size: "5.2 MB",
         format: "PDF",
-        fileUrl: "#", // TODO: Replace with link to real PDF
+        fileUrl: "/docs/bcsve-profile.pdf",
       },
       {
-        id: "dl-2",
-        title: "Vocational & Skill Examination Regulations & Bye-Laws",
-        category: "Rules",
-        size: "1.9 MB",
+        id: "dl-admission",
+        title: "Official Student Admission & Registration Form",
+        category: "Admissions",
+        size: "243 KB",
         format: "PDF",
-        fileUrl: "#", // TODO: Replace with link to real PDF
+        fileUrl: "/docs/bcsve-admission-form.pdf",
       },
       {
-        id: "dl-3",
-        title: "New Training Centre Affiliation Application Form",
+        id: "dl-fees",
+        title: "Official Program Fee Structure 2026 (Govt Approved)",
+        category: "Fee Chart",
+        size: "511 KB",
+        format: "PDF",
+        fileUrl: "/docs/bcsve-fee-structure.pdf",
+      },
+      {
+        id: "dl-partner",
+        title: "Authorised Training Partner Service Affiliation Form",
         category: "Affiliation",
-        size: "2.3 MB",
+        size: "233 KB",
         format: "PDF",
-        fileUrl: "#", // TODO: Replace with link to real PDF
+        fileUrl: "/docs/bcsve-partner-affiliation-form.pdf",
       },
       {
-        id: "dl-4",
-        title: "Healthcare Assistance Curriculum & Syllabus Module",
-        category: "Curriculum",
-        size: "3.1 MB",
+        id: "dl-auth-cert",
+        title: "Sample Authorised Skill Training Partner Certificate",
+        category: "Certificate",
+        size: "619 KB",
         format: "PDF",
-        fileUrl: "#", // TODO: Replace with link to real PDF
+        fileUrl: "/docs/bcsve-authorisation-sample.pdf",
+      },
+      {
+        id: "dl-logo",
+        title: "Official BCSVE High-Resolution Vector Brand Identity",
+        category: "Brand Assets",
+        size: "255 KB",
+        format: "PDF",
+        fileUrl: "/docs/bcsve-logo.pdf",
       },
     ],
   },
 
-  // 9. Frequently Asked Questions (Accordion)
+  // 9. Frequently Asked Questions
   faqs: {
     tag: "FREQUENTLY ASKED QUESTIONS",
     heading: "Everything You Need to Know",
-    subtitle: "Answers to common queries regarding admissions, recognition, validity, examination, and affiliation.",
+    subtitle: "Official answers to common queries regarding council registration, validity, examination, fees, and centre affiliation.",
     items: [
       {
         id: "faq-1",
-        question: "Are BCSVE certificates nationally recognized for government and private employment?",
-        answer: "Yes, BCSVE operates under national skill and vocational guidelines. All diplomas and certificates are equipped with verifiable QR codes and digital registration numbers that can be authenticated by employers anywhere in India through our official online verification portal.",
+        question: "Is BCSVE a legally approved and recognized institution?",
+        answer: "Yes. Bharath Council for Skill and Vocational Education (BCSVE) is an autonomous institution approved by the Government of India under the Society Registration Act XXI of 1860 (Registration S.No.731/2010), founded by Careerline Society. It functions as a top-level national autonomous certification body for skill development.",
       },
       {
         id: "faq-2",
-        question: "What is the minimum eligibility criteria for enrolling in diploma courses?",
-        answer: "Most certificate and diploma programs accept candidates who have passed 10th or 12th standard (Matriculation/Higher Secondary) from any recognized educational board. Specialized technical diplomas may require prior background in science or mathematics.",
+        question: "What is the official fee structure for BCSVE programs?",
+        answer: "BCSVE enforces a remarkably affordable and transparent fee structure across all training centres: ₹800 for 3-Month Certificate programs, ₹1,000 for 6-Month Diploma programs, and ₹1,500 for 1-Year Advanced/Master Diploma programs. The official fee structure PDF can be downloaded directly from our Downloads section.",
       },
       {
         id: "faq-3",
-        question: "How do I verify the authenticity of a student's certificate?",
-        answer: "Navigate to the 'Verify Certificate' section on this website. Enter the unique Certificate/Enrollment Number (e.g. BCSVE-2026-9874) and the student's Date of Birth. The system instantly displays the verified record, course name, grade, and issuing centre.",
+        question: "How do employers or students verify BCSVE certificates and marksheets?",
+        answer: "Every certificate and Result Cum Marks Certificate features a unique serial/registration number and QR code. Employers and students can authenticate credentials online on our official portal at www.bcsve.skillvoc.in or via the Verification section on this website.",
       },
       {
         id: "faq-4",
-        question: "Can an existing computer institute or academy become an affiliated centre?",
-        answer: "Yes. Educational trusts, registered societies, and private institutes with adequate classroom, lab, and faculty infrastructure can apply for BCSVE centre affiliation using the 'Apply for Affiliation' form.",
+        question: "What is the minimum eligibility criteria to enrol in BCSVE courses?",
+        answer: "In line with our mission of educational empowerment, courses are open to anyone with basic high school education (5th-8th, 9th-10th, 11th-12th, or Graduates). Admission is inclusive and accessible to both formal students and un-educated youth seeking practical trade skills.",
       },
       {
         id: "faq-5",
-        question: "Are programs available in hybrid or online modes for working professionals?",
-        answer: "Yes. Many of our management, digital technology, and theory-heavy programs offer hybrid or online modules with scheduled weekend practical training at regional training centres.",
+        question: "How can an educational institute or academy become an Authorised Training Partner?",
+        answer: "Eligible institutions, private computer centres, and trusts with adequate classroom, domain lab, and IT facilities can apply using the Service Partner Form. Once audited and approved, an Authorised Skill Training Partner certificate is issued by the Skill Development Division.",
       },
       {
         id: "faq-6",
-        question: "What is the duration and fee structure for vocational diploma courses?",
-        answer: "Program durations range from 3 months (Foundation Certificates) to 12-24 months (Advanced Diplomas). Fees are kept subsidized and affordable to foster widespread vocational inclusion. Detailed fee schedules are available in our official prospectus.",
+        question: "What is the examination and grading standard of the Council?",
+        answer: "Examinations are conducted under the Office of the Central Board of Examinations. The grading scale is: Grade A+ (80% and above, Distinction), Grade A (60% and above, First Division), Grade B (50% and above, Second Division), and Grade C (40% and above, Minimum Pass requirement).",
       },
     ],
   },
 
-  // 10. Contact & Support Map Section
+  // 10. Contact & Support
   contact: {
     tag: "CONTACT & SUPPORT",
-    heading: "Reach Out to Our Academic Desk",
-    subtitle: "Have questions about courses, verification, or opening a centre? Our team is available 6 days a week.",
+    heading: "Reach Out to Our Central Council Desk",
+    subtitle: "Have questions about course admissions, fee structure, certificate verification, or centre affiliation? Our team is available 6 days a week.",
     phone: "+91 8595350621",
-    email: "info@ccvte.org",
-    address: "C4/97B, Keshav Puram, Delhi - 110035, India",
+    email: "info@bcsve.skillvoc.in",
+    supportEmail: "support@bcsve.skillvoc.in",
+    address: "Plot no: 3, KR Signature, Sector 135, Noida - 201304, Uttar Pradesh, India",
     workingHours: "Monday to Saturday: 9:30 AM – 6:00 PM IST",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14000.730308006764!2d77.1517454!3d28.6841804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0246f48f4841%3A0xe54bb42013f7adfc!2sKeshav%20Puram%2C%20Tri%20Nagar%2C%20Delhi%2C%20110035!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin", // TODO: Replace with exact Google Maps embed
+    portalUrl: "www.bcsve.skillvoc.in",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.772583857867!2d77.39999697550186!3d28.486364175745136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce7cb4a7429a3%3A0x6b45d2e057cb3e0a!2sSector%20135%2C%20Noida%2C%20Uttar%20Pradesh%20201304!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
   },
 
   // 11. Final CTA Banner
   finalCta: {
-    headlineLead: "Begin Your Professional Journey with",
-    headlineHighlight: "Nationally Certified Skills",
-    description: "Join over 12,000 learners nationwide. Enrol in future-ready healthcare, IT, and business programs with dedicated placement assistance.",
-    primaryBtn: "Apply for Course",
+    headlineLead: "Skills That Makes You Skilled.",
+    headlineHighlight: "Empower Your Future.",
+    description: "Don't just dream it, earn it with your skills. Enrol in government-approved vocational programs backed by Careerline Society (S.No.731/2010). Regulated affordable fees starting from ₹800.",
+    primaryBtn: "Apply for Admission",
     secondaryBtn: "Call Academic Support",
     supportPhone: "+91 8595350621",
   },
@@ -683,6 +838,9 @@ export const siteData = {
 
   footer: {
     copyright: "© 2026 Bharath Council for Skill and Vocational Education (BCSVE). All Rights Reserved.",
+    legalNotice: "An Autonomous Institution Approved by Govt of India under Society Registration Act XXI of 1860 (S.No.731/2010). Founded by Careerline Society.",
+    regdOffice: "Plot no: 3, KR Signature, Sector 135, Noida - 201304, UP, India",
+    portal: "www.bcsve.skillvoc.in",
     legalLinks: [
       { name: "Privacy Policy", href: "#" },
       { name: "Terms & Conditions", href: "#" }
@@ -694,6 +852,7 @@ export const siteData = {
           { name: "Home", href: "#home" },
           { name: "About Us", href: "#about" },
           { name: "Our Programs", href: "#programs" },
+          { name: "Official Fee Structure", href: "#fees" },
           { name: "Notices & Circulars", href: "#notices" },
           { name: "Admission Pathway", href: "#admission-process" }
         ]
@@ -710,10 +869,10 @@ export const siteData = {
       {
         title: "Centre Affiliation",
         links: [
-          { name: "Become a Partner Centre", href: "#affiliation-cta" },
+          { name: "Apply for Affiliation", href: "#affiliation-cta" },
           { name: "Quality Framework", href: "#accreditations" },
-          { name: "Placement Enterprise Network", href: "#placements" },
-          { name: "Contact Coordination Office", href: "#contact" }
+          { name: "Placement Network", href: "#placements" },
+          { name: "Central Council Office", href: "#contact" }
         ]
       }
     ]

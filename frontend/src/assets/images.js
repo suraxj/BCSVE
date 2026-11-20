@@ -9,7 +9,9 @@ import programHealthcareImg from './program-healthcare.jpg';
 import programItImg from './program-it.jpg';
 import programBusinessImg from './program-business.jpg';
 import whyTorchImg from './why-torch.jpg';
-import certificateSampleImg from './certificate-sample.jpg';
+// Certificate Verification (Provided by User)
+import officialCertificateImg from './bcsve-official-certificate.jpg';
+import officialMarksheetImg from './bcsve-official-marksheet.jpg';
 
 // Affiliated Partners (Provided by User)
 import partnerAicteImg from './partner-aicte.jpg';
@@ -62,8 +64,10 @@ export const siteImages = {
   // Why BCSVE (Provided by User)
   torchLaurelGraphic: whyTorchImg,
 
-  // Certificate Verification (Provided by User)
-  certificatePreview: certificateSampleImg,
+  // Certificate & Marksheet Verification (Official Documents from Council)
+  certificatePreview: officialCertificateImg,
+  officialCertificate: officialCertificateImg,
+  officialMarksheet: officialMarksheetImg,
 
   // Affiliations & Accreditations (Provided by User)
   affiliationAicte: partnerAicteImg,

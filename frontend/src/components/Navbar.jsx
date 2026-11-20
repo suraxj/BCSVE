@@ -1,46 +1,58 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { siteData } from '../data/siteData';
 import { siteImages } from '../assets/images';
 import Container from './common/Container';
-import { GraduationCap, Menu, X, ChevronDown } from 'lucide-react';
+import { GraduationCap, Menu, X, ChevronDown, HeartPulse, Laptop, TrendingUp, Wrench, ArrowRight } from 'lucide-react';
+
+const programDropdownItems = [
+  { name: 'Healthcare & Wellness', slug: 'healthcare-wellness', icon: HeartPulse, color: 'text-rose-700' },
+  { name: 'Information Technology', slug: 'information-technology', icon: Laptop, color: 'text-sky-700' },
+  { name: 'Business & Management', slug: 'business-management', icon: TrendingUp, color: 'text-amber-700' },
+  { name: 'Vocational & Applied Trades', slug: 'vocational-applied-trades', icon: Wrench, color: 'text-blue-700' },
+];
 
 export default function Navbar({ onOpenApply }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Detect active section on scroll
-      const sections = [
-        'home',
-        'about',
-        'programs',
-        'admission-process',
-        'partners',
-        'why-choose-us',
-        'affiliation-cta',
-        'accreditations',
-        'faculty',
-        'verification',
-        'testimonials',
-        'placements',
-        'notices',
-        'gallery',
-        'downloads',
-        'faqs',
-        'contact'
-      ];
-      const scrollPos = window.scrollY + 120;
+      // Only calculate active section on landing page
+      if (location.pathname === '/') {
+        const sections = [
+          'home',
+          'about',
+          'programs',
+          'fees',
+          'admission-process',
+          'partners',
+          'why-choose-us',
+          'affiliation-cta',
+          'accreditations',
+          'faculty',
+          'verification',
+          'testimonials',
+          'placements',
+          'notices',
+          'gallery',
+          'downloads',
+          'faqs',
+          'contact'
+        ];
+        const scrollPos = window.scrollY + 120;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sections[i]);
-          break;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sections[i]);
+          if (el && el.offsetTop <= scrollPos) {
+            setActiveSection(sections[i]);
+            break;
+          }
         }
       }
     };
@@ -49,7 +61,14 @@ export default function Navbar({ onOpenApply }) {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
+
+  const resolveHref = (href) => {
+    if (href.startsWith('#')) {
+      return '/' + href;
+    }
+    return href;
+  };
 
   return (
     <header
@@ -67,8 +86,8 @@ export default function Navbar({ onOpenApply }) {
         >
           
           {/* Logo & Council Branding */}
-          <a
-            href="#home"
+          <Link
+            to="/"
             className="flex min-w-0 items-center gap-2 group focus:outline-none focus-visible:ring-1 focus-visible:ring-bcsve-800 rounded p-0.5"
           >
             {siteImages.logo ? (
@@ -93,13 +112,15 @@ export default function Navbar({ onOpenApply }) {
                 {siteData.header.tagline}
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1">
             {siteData.header.navLinks.map((link) => {
               const linkSection = link.href.replace('#', '') || 'home';
-              const isActive = activeSection === linkSection;
+              const isLanding = location.pathname === '/';
+              const isActive = isLanding && activeSection === linkSection;
+              const isProgramsRoute = location.pathname.startsWith('/programs');
 
               if (link.hasDropdown) {
                 return (
@@ -109,10 +130,10 @@ export default function Navbar({ onOpenApply }) {
                     onMouseEnter={() => setProgramsDropdownOpen(true)}
                     onMouseLeave={() => setProgramsDropdownOpen(false)}
                   >
-                    <a
-                      href={link.href}
+                    <Link
+                      to="/#programs"
                       className={`px-2 py-1 rounded text-xs font-medium transition-all duration-200 flex items-center gap-1 font-sans group relative ${
-                        isActive
+                        isActive || isProgramsRoute
                           ? 'text-bcsve-900 font-semibold bg-bcsve-50/80'
                           : 'text-gray-700 hover:text-bcsve-900 hover:bg-bcsve-50/70'
                       }`}
@@ -126,25 +147,42 @@ export default function Navbar({ onOpenApply }) {
                       />
                       <span
                         className={`absolute bottom-0 left-2 right-2 h-0.5 bg-gold-400 rounded-full transition-transform duration-300 origin-left ${
-                          isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                          isActive || isProgramsRoute ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                         }`}
                       />
-                    </a>
+                    </Link>
 
-                    {/* Animated Dropdown Menu */}
+                    {/* Animated Dropdown Menu with 4 Program Pages */}
                     {programsDropdownOpen && (
-                      <div className="absolute top-full left-0 w-48 bg-white rounded-lg shadow-elevated border border-bcsve-100 py-1 mt-0.5 z-50 animate-fadeIn origin-top">
-                        {siteData.programs.categories.map((cat, idx) => (
-                          <a
-                            key={cat}
-                            href="#programs"
+                      <div className="absolute top-full left-0 w-64 bg-white rounded-xl shadow-elevated border border-bcsve-100 py-2 mt-0.5 z-50 animate-fadeIn origin-top text-left font-sans">
+                        <div className="px-3.5 py-1 text-[10px] font-bold uppercase tracking-wider text-gold-600 border-b border-bcsve-50 mb-1">
+                          Vocational Sectors
+                        </div>
+                        {programDropdownItems.map((prog, idx) => {
+                          const Icon = prog.icon;
+                          return (
+                            <Link
+                              key={prog.slug}
+                              to={`/programs/${prog.slug}`}
+                              onClick={() => setProgramsDropdownOpen(false)}
+                              style={{ animationDelay: `${idx * 40}ms` }}
+                              className="flex items-center gap-2.5 px-3.5 py-2 text-xs text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors font-sans"
+                            >
+                              <Icon size={14} className={prog.color} />
+                              <span className="font-medium">{prog.name}</span>
+                            </Link>
+                          );
+                        })}
+                        <div className="border-t border-bcsve-100/70 mt-1 pt-1.5 px-2">
+                          <Link
+                            to="/#programs"
                             onClick={() => setProgramsDropdownOpen(false)}
-                            style={{ animationDelay: `${idx * 40}ms` }}
-                            className="block px-3 py-1.5 text-[11.5px] text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 hover:translate-x-1 transition-all duration-200 font-sans"
+                            className="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-bcsve-800 hover:bg-cream-100 transition-colors font-sans"
                           >
-                            {cat}
-                          </a>
-                        ))}
+                            <span>Browse All Programs</span>
+                            <ArrowRight size={11} />
+                          </Link>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -152,9 +190,9 @@ export default function Navbar({ onOpenApply }) {
               }
 
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={resolveHref(link.href)}
                   className={`relative px-2 py-1 rounded text-xs font-medium transition-all duration-200 font-sans group ${
                     isActive
                       ? 'text-bcsve-900 font-semibold bg-bcsve-50/80'
@@ -167,12 +205,12 @@ export default function Navbar({ onOpenApply }) {
                       isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                     }`}
                   />
-                </a>
+                </Link>
               );
             })}
           </nav>
 
-          {/* Right Action: Apply Now CTA Button with Shimmer Sweep & Pulse */}
+          {/* Right Action: Apply Now CTA Button */}
           <div className="hidden sm:flex items-center gap-2">
             <button
               onClick={onOpenApply}
@@ -204,27 +242,84 @@ export default function Navbar({ onOpenApply }) {
         </div>
       </Container>
 
-      {/* Mobile dropdown menu with staggered slide-down */}
+      {/* Mobile dropdown menu with sub-course quick links */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-bcsve-100 bg-white/98 backdrop-blur-md px-4 pt-2.5 pb-3.5 space-y-1 shadow-card animate-fadeIn">
-          {siteData.header.navLinks.map((link, idx) => (
-            <a
-              key={link.name}
-              href={link.href}
-              style={{ animationDelay: `${idx * 45}ms` }}
-              onClick={() => setMobileMenuOpen(false)}
-              className="animate-fadeIn block px-3 py-1.5 rounded text-xs font-medium text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 hover:translate-x-1 transition-all duration-200 font-sans"
-            >
-              {link.name}
-            </a>
-          ))}
-          <div className="pt-1.5">
+        <div className="lg:hidden border-t border-bcsve-100 bg-white/98 backdrop-blur-md px-4 pt-2.5 pb-4 space-y-1 shadow-card animate-fadeIn text-left font-sans">
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-1.5 rounded text-xs font-semibold text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors"
+          >
+            Home
+          </Link>
+          <Link
+            to="/#about"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-1.5 rounded text-xs font-semibold text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors"
+          >
+            About BCSVE
+          </Link>
+
+          {/* Program Sub-Pages in Mobile Menu */}
+          <div className="pt-1 pb-1 pl-3 border-l-2 border-gold-400 space-y-1 my-1">
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-gold-700 mb-1">
+              Programs & Diplomas
+            </span>
+            {programDropdownItems.map((prog) => (
+              <Link
+                key={prog.slug}
+                to={`/programs/${prog.slug}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-1 text-xs text-gray-600 hover:text-bcsve-900 font-medium"
+              >
+                • {prog.name}
+              </Link>
+            ))}
+          </div>
+
+          <Link
+            to="/#admission-process"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-1.5 rounded text-xs font-semibold text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors"
+          >
+            Admissions
+          </Link>
+          <Link
+            to="/#verification"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-1.5 rounded text-xs font-semibold text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors"
+          >
+            Verification
+          </Link>
+          <Link
+            to="/#affiliation-cta"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-1.5 rounded text-xs font-semibold text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors"
+          >
+            Affiliation
+          </Link>
+          <Link
+            to="/#faqs"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-1.5 rounded text-xs font-semibold text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors"
+          >
+            FAQs
+          </Link>
+          <Link
+            to="/#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-1.5 rounded text-xs font-semibold text-gray-700 hover:bg-bcsve-50 hover:text-bcsve-900 transition-colors"
+          >
+            Contact
+          </Link>
+
+          <div className="pt-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenApply();
               }}
-              className="shimmer-sweep w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded bg-bcsve-800 hover:bg-bcsve-900 text-white font-semibold text-xs shadow-xs font-sans transition-all duration-200 active:scale-[0.98]"
+              className="shimmer-sweep w-full flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-bcsve-800 hover:bg-bcsve-900 text-white font-semibold text-xs shadow-xs font-sans transition-all duration-200 active:scale-[0.98]"
             >
               <GraduationCap size={15} />
               <span>{siteData.header.ctaButton}</span>

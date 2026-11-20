@@ -10,7 +10,7 @@ import {
   Star 
 } from 'lucide-react';
 
-export default function HeroSection({ onOpenApply, onOpenVerify }) {
+export default function HeroSection({ _onOpenApply, onOpenVerify }) {
   const { hero } = siteData;
   const heroRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

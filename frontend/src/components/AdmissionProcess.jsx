@@ -32,15 +32,24 @@ export default function AdmissionProcess({ onOpenApply }) {
             noMargin
             className="flex-1"
           />
-          {onOpenApply && (
-            <button
-              onClick={onOpenApply}
-              className="shimmer-sweep self-start sm:self-auto shrink-0 min-h-[34px] h-8.5 px-3.5 rounded-full bg-bcsve-800 hover:bg-bcsve-900 text-white font-bold text-xs shadow-xs hover:shadow-card transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-sans inline-flex items-center gap-1.5"
+          <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto shrink-0">
+            <a
+              href="/docs/bcsve-admission-form.pdf"
+              download
+              className="inline-flex items-center gap-1.5 min-h-[34px] h-8.5 px-3 rounded-full bg-cream-100 hover:bg-bcsve-800 text-bcsve-950 hover:text-white border border-bcsve-200 hover:border-bcsve-800 font-bold text-xs shadow-xs transition-all duration-200 active:scale-95 font-sans"
             >
-              <span>Start Admission Form</span>
-              <ArrowRight size={12} />
-            </button>
-          )}
+              <span>Download Form (PDF)</span>
+            </a>
+            {onOpenApply && (
+              <button
+                onClick={onOpenApply}
+                className="shimmer-sweep min-h-[34px] h-8.5 px-3.5 rounded-full bg-bcsve-800 hover:bg-bcsve-900 text-white font-bold text-xs shadow-xs hover:shadow-card transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-sans inline-flex items-center gap-1.5"
+              >
+                <span>Start Admission Form</span>
+                <ArrowRight size={12} />
+              </button>
+            )}
+          </div>
         </div>
 
         {/* 5-Step Timeline Container */}

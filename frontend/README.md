@@ -1,16 +1,78 @@
-# React + Vite
+# Bharath Council for Skill and Vocational Education (BCSVE) - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Official web portal and course detail application for the Bharath Council for Skill and Vocational Education.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Framework:** React 19 + Vite
+- **Styling:** Tailwind CSS 3 (Custom palette: `bcsve` maroon, `gold`, `cream`)
+- **Icons:** `lucide-react`
+- **Routing:** `react-router-dom` (SPA client-side navigation with hash scroll restoration)
+- **Code Quality:** Oxlint
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Deployment & Single Page Application (SPA) Routing Note
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This application uses client-side routing via `react-router-dom` (`BrowserRouter`) with lazy-loaded sub-pages:
+- `/` - Main Council Landing Page
+- `/programs/healthcare-wellness` - Healthcare & Wellness ("The Pulse")
+- `/programs/information-technology` - Information Technology ("The Terminal")
+- `/programs/business-management` - Business & Management ("The Growth Dashboard")
+- `/programs/vocational-applied-trades` - Vocational & Applied Trades ("The Workshop Blueprint")
+- `*` - Branded 404 Not Found Page
 
-## Expanding the Oxlint configuration
+### Web Server / Hosting Rewrite Configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+To ensure deep links (e.g. refreshing `/programs/healthcare-wellness` directly in the browser) do not return HTTP 404 errors, all non-asset requests must be rewritten to `/index.html`:
+
+1. **Netlify & Cloudflare Pages:**
+   - Already configured in [`frontend/public/_redirects`](./public/_redirects):
+     ```text
+     /*    /index.html   200
+     ```
+
+2. **Vercel (`vercel.json`):**
+   ```json
+   {
+     "rewrites": [
+       { "source": "/(.*)", "destination": "/index.html" }
+     ]
+   }
+   ```
+
+3. **Apache (`.htaccess`):**
+   ```apache
+   <IfModule mod_rewrite.c>
+     RewriteEngine On
+     RewriteBase /
+     RewriteRule ^index\.html$ - [L]
+     RewriteCond %{REQUEST_FILENAME} !-f
+     RewriteCond %{REQUEST_FILENAME} !-d
+     RewriteRule . /index.html [L]
+   </IfModule>
+   ```
+
+4. **Nginx:**
+   ```nginx
+   location / {
+     try_files $uri $uri/ /index.html;
+   }
+   ```
+
+---
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start Vite development server
+npm run dev
+
+# Run Oxlint
+npm run lint
+
+# Build production bundle
+npm run build
+```

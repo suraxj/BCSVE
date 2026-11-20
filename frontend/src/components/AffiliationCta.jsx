@@ -40,8 +40,8 @@ export default function AffiliationCta({ onOpenAffiliation }) {
               ))}
             </div>
 
-            {/* Action Button */}
-            <div className="pt-1">
+            {/* Action Buttons */}
+            <div className="pt-1 flex flex-wrap items-center gap-2.5">
               <button
                 onClick={onOpenAffiliation}
                 className="shimmer-sweep inline-flex items-center gap-1.5 min-h-[34px] h-8.5 px-4 rounded-full bg-bcsve-800 hover:bg-bcsve-900 text-white font-bold text-xs shadow-xs hover:shadow-card transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-sans"
@@ -50,6 +50,14 @@ export default function AffiliationCta({ onOpenAffiliation }) {
                 <span>{affiliationCta.ctaText}</span>
                 <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-1" />
               </button>
+
+              <a
+                href="/docs/bcsve-partner-affiliation-form.pdf"
+                download
+                className="inline-flex items-center gap-1.5 min-h-[34px] h-8.5 px-3.5 rounded-full bg-white hover:bg-bcsve-800 text-bcsve-950 hover:text-white border border-bcsve-200 hover:border-bcsve-800 font-bold text-xs shadow-xs transition-all duration-200 active:scale-95 font-sans"
+              >
+                <span>Download Partner Kit (PDF)</span>
+              </a>
             </div>
           </div>
 

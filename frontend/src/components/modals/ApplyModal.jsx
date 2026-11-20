@@ -55,6 +55,15 @@ export default function ApplyModal({ isOpen, onClose }) {
               <p className="text-[11px] sm:text-xs text-gray-500 font-sans">
                 Apply for admission into BCSVE certified vocational and technical programs.
               </p>
+              <div className="pt-1">
+                <a
+                  href="/docs/bcsve-admission-form.pdf"
+                  download
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-bcsve-800 hover:text-bcsve-950 underline"
+                >
+                  <span>Download Official Printable Admission Form (PDF)</span>
+                </a>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-2.5 text-xs font-sans">

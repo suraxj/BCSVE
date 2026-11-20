@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { siteData } from '../data/siteData';
 import { siteImages } from '../assets/images';
 import Reveal from './common/Reveal';
@@ -40,7 +41,7 @@ const SocialIconSvg = ({ type }) => {
   }
 };
 
-export default function Footer({ onOpenApply, onOpenAffiliation }) {
+export default function Footer({ _onOpenApply, onOpenAffiliation }) {
   const { footer } = siteData;
 
   const socialLinks = [
@@ -50,6 +51,14 @@ export default function Footer({ onOpenApply, onOpenAffiliation }) {
     { name: 'Facebook', type: 'Facebook', href: '#' },
     { name: 'X', type: 'X', href: '#' },
   ];
+
+  const resolveHref = (href) => {
+    if (!href) return '#';
+    if (href.startsWith('#') && href.length > 1) {
+      return `/${href}`;
+    }
+    return href;
+  };
 
   return (
     <footer id="footer" className="bg-cream-100/90 border-t border-bcsve-200/80 pt-5 pb-3.5 sm:pt-6 sm:pb-4 text-gray-700 font-sans overflow-hidden">
@@ -61,12 +70,12 @@ export default function Footer({ onOpenApply, onOpenAffiliation }) {
             
             {/* Col 1: Logo & Council Info (Span 4) */}
             <div className="lg:col-span-4 space-y-1.5 text-left">
-              <div className="flex items-center gap-2">
+              <Link to="/" className="flex items-center gap-2 group cursor-pointer inline-flex">
                 {siteImages.logo ? (
                   <img
                     src={siteImages.logo}
                     alt="BCSVE Logo"
-                    className="w-9 h-9 sm:w-10 sm:h-10 object-contain shrink-0"
+                    className="w-9 h-9 sm:w-10 sm:h-10 object-contain shrink-0 group-hover:scale-105 transition-transform"
                   />
                 ) : (
                   <div className="w-9 h-9 rounded-full border border-bcsve-800 bg-white flex items-center justify-center font-bold text-[9px] text-bcsve-900 font-sans shrink-0">
@@ -84,10 +93,10 @@ export default function Footer({ onOpenApply, onOpenAffiliation }) {
                     Educate • Empower • Enlighten
                   </span>
                 </div>
-              </div>
+              </Link>
 
               <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed max-w-xs font-sans">
-                Dedicated to promoting skill excellence, vocational training, and national certification standards for India's youth and workforce.
+                An Autonomous Institution Approved by Govt of India under Society Registration Act XXI of 1860 (S.No.731/2010), Founded by Careerline Society. Promoting skill excellence across 12 vital sectors.
               </p>
             </div>
 
@@ -99,22 +108,45 @@ export default function Footer({ onOpenApply, onOpenAffiliation }) {
                     {col.title}
                   </h4>
                   <ul className="space-y-1 text-[11px] sm:text-[12px] font-sans">
-                    {col.links.map((link) => (
-                      <li key={link.name}>
-                        <a
-                          href={link.href}
-                          onClick={(e) => {
-                            if (link.name === 'Apply for Affiliation' && onOpenAffiliation) {
-                              e.preventDefault();
-                              onOpenAffiliation();
-                            }
-                          }}
-                          className="text-gray-600 hover:text-bcsve-900 hover:translate-x-1 transition-all duration-200 font-sans py-0.5 inline-block"
-                        >
-                          {link.name}
-                        </a>
-                      </li>
-                    ))}
+                    {col.links.map((link) => {
+                      const isAffiliation = link.name === 'Apply for Affiliation';
+                      const targetHref = resolveHref(link.href);
+                      const isInternal = targetHref.startsWith('/');
+
+                      if (isAffiliation && onOpenAffiliation) {
+                        return (
+                          <li key={link.name}>
+                            <button
+                              type="button"
+                              onClick={onOpenAffiliation}
+                              className="text-gray-600 hover:text-bcsve-900 hover:translate-x-1 transition-all duration-200 font-sans py-0.5 inline-block text-left"
+                            >
+                              {link.name}
+                            </button>
+                          </li>
+                        );
+                      }
+
+                      return (
+                        <li key={link.name}>
+                          {isInternal ? (
+                            <Link
+                              to={targetHref}
+                              className="text-gray-600 hover:text-bcsve-900 hover:translate-x-1 transition-all duration-200 font-sans py-0.5 inline-block"
+                            >
+                              {link.name}
+                            </Link>
+                          ) : (
+                            <a
+                              href={targetHref}
+                              className="text-gray-600 hover:text-bcsve-900 hover:translate-x-1 transition-all duration-200 font-sans py-0.5 inline-block"
+                            >
+                              {link.name}
+                            </a>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}
@@ -141,8 +173,10 @@ export default function Footer({ onOpenApply, onOpenAffiliation }) {
               </div>
 
               <div className="text-[11px] sm:text-xs text-gray-600 pt-0.5 space-y-0.5 font-sans">
-                <div><strong className="text-gray-700">Email:</strong> info@bcsve.org.in</div>
-                <div><strong className="text-gray-700">Helpline:</strong> +91 1800-BCSVE-EDU</div>
+                <div><strong className="text-gray-700">Regd. Office:</strong> Plot 3, KR Signature, Sector 135, Noida-201304</div>
+                <div><strong className="text-gray-700">Email:</strong> info@bcsve.skillvoc.in</div>
+                <div><strong className="text-gray-700">Helpline:</strong> +91 8595350621</div>
+                <div><strong className="text-gray-700">Portal:</strong> www.bcsve.skillvoc.in</div>
               </div>
             </div>
 
