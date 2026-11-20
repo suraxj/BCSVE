@@ -150,14 +150,12 @@ export const siteData = {
         title: "Certificate Program",
         centreFee: "₹800",
         coordinatorFee: "₹600",
-        tagline: "Short-term Foundation & Rapid Upskilling",
-        description: "Ideal for basic literacy, foundational office tools, and introductory practical techniques.",
+        tagline: "Short-term Foundation & Upskilling",
+        description: "Ideal for basic literacy, foundational office tools, and rapid job skills.",
         features: [
-          "Foundation Theory & Practical Syllabus",
-          "Central Board Registration",
-          "Evaluation & Examination Fee",
-          "Verifiable Council Certificate (QR Coded)",
-          "Online Verification on www.bcsve.skillvoc.in"
+          "Full Foundation Theory & Practical Syllabus",
+          "Central Board Examination Assessment",
+          "Verifiable QR-Coded Council Certificate"
         ],
         isPopular: false
       },
@@ -167,32 +165,26 @@ export const siteData = {
         title: "Diploma Program",
         centreFee: "₹1,000",
         coordinatorFee: "₹750",
-        tagline: "Comprehensive Trade Competency (Most Enrolled)",
-        description: "Hands-on domain training, mid-term evaluations, and industry-oriented job role skills.",
+        tagline: "Comprehensive Trade Competency",
+        description: "Hands-on domain training, mid-term evaluations, and job-ready skills.",
         features: [
-          "Full Semi-Annual Practical Curriculum",
-          "Dedicated Domain & IT Lab Access",
-          "Mid-Term Continuous Assessments",
-          "Central Board Marksheet & Diploma",
-          "Online Portal & QR Verification",
-          "Placement Assistance Support"
+          "Complete Semi-Annual Practical Curriculum",
+          "Mid-Term Evaluations & Lab Practical",
+          "Central Board Marksheet & Diploma"
         ],
         isPopular: true
       },
       {
         id: "tier-1y",
         duration: "1 Year",
-        title: "Advanced / Master Diploma",
+        title: "Advanced Diploma",
         centreFee: "₹1,500",
         coordinatorFee: "₹1,000",
-        tagline: "Advanced Professional & Supervisory Mastery",
-        description: "Two-semester in-depth technical training with mandatory internship and supervisory competencies.",
+        tagline: "Professional & Supervisory Mastery",
+        description: "Two-semester in-depth technical training with supervisory competencies.",
         features: [
-          "Two Semesters of Structured Practical Labs",
-          "Comprehensive Examination Conduct",
-          "Official Result Cum Marks Certificate",
-          "National Autonomous Diploma Award",
-          "Authorised Centre Verification Record",
+          "Two Semesters Structured Practical Training",
+          "Result Cum Marks Certificate & Diploma",
           "Direct Employer Referral Network"
         ],
         isPopular: false

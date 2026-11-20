@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { siteData } from '../data/siteData';
 import { siteImages } from '../assets/images';
-import { 
-  ArrowRight, 
-  ShieldCheck, 
-  Check, 
-  BarChart2, 
-  Calendar, 
-  Star 
+import {
+  ArrowRight,
+  ShieldCheck,
+  Check,
+  BarChart2,
+  Calendar,
+  Star
 } from 'lucide-react';
 
-export default function HeroSection({ _onOpenApply, onOpenVerify }) {
+export default function HeroSection({ onOpenApply, onOpenVerify }) {
   const { hero } = siteData;
   const heroRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -45,8 +45,8 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
   ];
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       ref={heroRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -58,8 +58,8 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
           className="absolute inset-0 bg-cover bg-no-repeat bg-center sm:bg-center lg:bg-[position:right_center] transition-transform duration-500 ease-out"
           style={{
             backgroundImage: `url(${siteImages.heroBackground})`,
-            transform: canHover 
-              ? `translate3d(${mousePos.x * -5}px, ${mousePos.y * -3}px, 0)` 
+            transform: canHover
+              ? `translate3d(${mousePos.x * -5}px, ${mousePos.y * -3}px, 0)`
               : 'none',
           }}
         />
@@ -74,12 +74,12 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center min-h-[260px] sm:min-h-[290px] lg:min-h-[320px]">
-          
+
           {/* Left Column: Headlines & CTA */}
           <div className="lg:col-span-7 space-y-2.5 sm:space-y-3 text-left">
-            
+
             {/* Top Tag / Pill */}
-            <div 
+            <div
               style={{ animationDelay: '60ms' }}
               className="animate-fadeInUp inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-gold-300/80 shadow-sm hover:scale-[1.02] transition-transform duration-200"
             >
@@ -95,13 +95,13 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
 
             {/* Main Headline with Staggered Entrance & Wavy Shimmer */}
             <h1 className="font-sans text-xl sm:text-2xl lg:text-[28px] font-extrabold text-bcsve-950 leading-[1.22] tracking-tight">
-              <span 
+              <span
                 style={{ animationDelay: '140ms' }}
                 className="inline-block animate-fadeInUp"
               >
                 {hero.headingPart1}
               </span>{' '}
-              <span 
+              <span
                 style={{ animationDelay: '260ms' }}
                 className="inline-block animate-fadeInUp"
               >
@@ -112,7 +112,7 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
             </h1>
 
             {/* Subheading / Description */}
-            <p 
+            <p
               style={{ animationDelay: '360ms' }}
               className="animate-fadeInUp text-xs sm:text-[13px] text-gray-700 max-w-md leading-relaxed font-normal font-sans"
             >
@@ -120,7 +120,7 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
             </p>
 
             {/* Action Buttons */}
-            <div 
+            <div
               style={{ animationDelay: '460ms' }}
               className="animate-fadeInUp flex flex-wrap items-center gap-3 pt-1"
             >
@@ -148,7 +148,7 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
             </div>
 
             {/* Social Proof: Real Learner Avatars */}
-            <div 
+            <div
               style={{ animationDelay: '560ms' }}
               className="animate-fadeInUp pt-1.5 flex items-center gap-2.5"
             >
@@ -173,14 +173,14 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
 
           {/* Right Column: Floating Badges with 3D Depth & Independent Float */}
           <div className="hidden lg:flex lg:col-span-5 relative items-center justify-end min-h-[200px]">
-            
+
             <div className="relative w-full max-w-[280px] h-40 flex items-center justify-center pointer-events-none">
-              
+
               {/* Floating Badge 1: "Certified" */}
-              <div 
+              <div
                 style={{
-                  transform: canHover 
-                    ? `translate3d(${mousePos.x * 14}px, ${mousePos.y * 10}px, 0)` 
+                  transform: canHover
+                    ? `translate3d(${mousePos.x * 14}px, ${mousePos.y * 10}px, 0)`
                     : undefined,
                   transition: 'transform 240ms ease-out',
                 }}
@@ -193,10 +193,10 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
               </div>
 
               {/* Floating Badge 2: "98% Placement" */}
-              <div 
+              <div
                 style={{
-                  transform: canHover 
-                    ? `translate3d(${mousePos.x * -12}px, ${mousePos.y * -10}px, 0)` 
+                  transform: canHover
+                    ? `translate3d(${mousePos.x * -12}px, ${mousePos.y * -10}px, 0)`
                     : undefined,
                   transition: 'transform 240ms ease-out',
                 }}
@@ -212,10 +212,10 @@ export default function HeroSection({ _onOpenApply, onOpenVerify }) {
               </div>
 
               {/* Floating Badge 3: "New Batch Open" */}
-              <div 
+              <div
                 style={{
-                  transform: canHover 
-                    ? `translate3d(${mousePos.x * 10}px, ${mousePos.y * -12}px, 0)` 
+                  transform: canHover
+                    ? `translate3d(${mousePos.x * 10}px, ${mousePos.y * -12}px, 0)`
                     : undefined,
                   transition: 'transform 240ms ease-out',
                 }}
